@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UA</title>
+  <script src="./ua.js"></script>
+</head>
+
+<body>
+  <ul>
+  </ul>
+  <script>
+    let msg = BrowserType();
+    let paramsArr = [{
+        prop: 'system',
+        desc: '系统',
+      },
+      {
+        prop: 'systemVs',
+        desc: '系统版本',
+      },
+      {
+        prop: 'platform',
+        desc: '平台',
+      },
+      {
+        prop: 'engine',
+        desc: '内核',
+      },
+      {
+        prop: 'engineVs',
+        desc: '内核版本',
+      },
+      {
+        prop: 'supporter',
+        desc: '载体（浏览器）',
+      },
+      {
+        prop: 'supporterVs',
+        desc: '载体版本',
+      },
+      {
+        prop: 'shell',
+        desc: '外壳',
+      },
+      {
+        prop: 'shellVs',
+        desc: '外壳版本',
+      },
+    ]
+    
+    let ul = document.querySelector('ul')
+    paramsArr.forEach(row => {
+      let label = document.createElement('label')
+      label.innerText = row.desc + '======>'
+
+      let value = document.createElement('span')
+      value.innerText = msg[row.prop]
+
+      let li = document.createElement('li')
+      li.appendChild(label)
+      li.appendChild(value)
+
+      ul.appendChild(li)
+    })
+  </script>
+</body>
+
+</html>
